@@ -42,6 +42,7 @@ body { background-color: color-mix(in srgb, #1f363d, #000 40%); }
 main{
     padding: 4rem 8%;
     text-align: center;
+
 }
 h1{
     font-size: 3rem;
@@ -126,6 +127,18 @@ h1{
     max-width: 85%;
 }
 .card-min .content small { opacity: .65; }
+.title-pos { position: relative; }
+.right{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.15rem !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
 /* -- FOOTER -- */
 #footer{
     background-color: color-mix(in srgb, #1f363d, #000 60%);
@@ -178,4 +191,112 @@ h1{
         grid-template-columns: 100%;
     }
     /* -- FOOTER -- */
+}
+/* -- LOGIN -- */
+#login-space .arrow{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    font-size: .85rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    transition: all .15s ease-in;
+    color: #cfe0c3;
+
+    &:hover {
+        scale: 1.05;
+        background-color: #1f363d;
+    }
+}
+#login-space{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#login, #register{
+    background-color: color-mix(in srgb, #1f363d, #000 15%);
+    border-radius: 8px;
+    width: max-content;
+}
+#login { padding: 3rem 4rem; }
+#register { padding: 2rem 4rem; }
+#login { margin-top: 2rem; }
+#login form, #register form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.input-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+label{
+    font-size: 1rem;
+    color: #cfe0c3;
+    opacity: .75;
+    margin-bottom: 0.5rem;
+}
+.input{
+    width: 100%;
+    border: 1px solid color-mix(in srgb, #1f363d, #fff 15%);
+    background-color: #1f363d;
+    color: #cfe0c3;
+    padding: .75rem 1.5rem;
+    border-radius: 8px;
+}
+#login form .button-primary { margin-top: 2rem; }
+#register form .button-primary{ margin-top: 1rem; }
+.button-primary{
+    background-color: #eb0a74;
+    border: none;
+    width: 100%;
+    padding: 1rem;
+    color: #fff;
+    font-size: 1.25rem;
+    border-radius: 8px;
+    transition: background-color .14s ease-in;
+    cursor: pointer;
+
+    &:hover{ background-color: color-mix(in srgb, #eb0a74, #000 25%); }
+    &:active{ background-color: color-mix(in srgb, #eb0a74, #000 45%); }
+}
+#login .btn-nav, #register .btn-nav { border-radius: 8px; }
+#login-space #footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.error{
+    color: red;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+}
+.form-distance{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.form-distance .button-primary {
+    width: 50%;
+    align-self: center;
+}
+.grid-2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+/* -- GAMES.BASE -- */
+.distribution h2{
+    color: #cfe0c3 !important;
 }
