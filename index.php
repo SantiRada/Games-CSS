@@ -1,20 +1,20 @@
 <?php
     session_start();
 
-    include('config.php');
+    include('modules/config.php');
 
     $resgames = mysqli_query($con, "select * from games order by id desc;");
     $restools = mysqli_query($con, "select * from tools order by id desc;");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Games CSS - Santiago Rada</title>
     <!-- STYLES -->
-    <link rel="preconnect" href="style.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="style/style.css">
+    <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <script src="https://kit.fontawesome.com/8e77509853.js" crossorigin="anonymous"></script>
     <!-- FONTS -->
@@ -31,19 +31,19 @@
             <a class="btn-nav" href="#tools">Herramientas</a>
             <a class="btn-nav" href="#footer">Contacto</a>
         </nav>
-        <a class="btn-nav" href="<?php if(isset($_SESSION['name'])): echo "close.php"; else: echo "login.php"; endif; ?>"><?php if(isset($_SESSION['name'])): echo $_SESSION['name']; else: ?>Iniciar Sesión<?php endif; ?></a>
+        <a class="btn-nav" href="<?php if(isset($_SESSION['name'])): echo "modules/close.php"; else: echo "modules/login.php"; endif; ?>"><?php if(isset($_SESSION['name'])): echo $_SESSION['name']; else: ?>Iniciar Sesión<?php endif; ?></a>
     </header>
 
     <main>
         <section id="games">
             <div class="title-pos">
                 <h1 class="distance">Juegos</h1>
-                <?php if(isset($_SESSION['type'])): if($_SESSION['type'] == "admin"): ?><a class="right btn-icon" href="create.php?filter=games"><i class="fa-solid fa-plus"></i> Crear</a><?php endif; endif; ?>
+                <?php if(isset($_SESSION['type'])): if($_SESSION['type'] == "admin"): ?><a class="right btn-icon" href="modules/create.php?filter=games"><i class="fa-solid fa-plus"></i> Crear</a><?php endif; endif; ?>
             </div>
             <div class="content-games">
                 <?php foreach($resgames as $row): $chips = explode(',', $row['chips']); ?>
-                    <a class="card" href="Games/<?php echo $row['title']; ?>/index.php">
-                        <img src="Media/Games.png" alt="imagen del juego">
+                    <a class="card" href="games/<?php echo $row['title']; ?>/index.php">
+                        <img src="games/<?php echo $row['title'] . "/"; ?>cover.png" alt="imagen del juego">
                         <div class="content">
                             <h4><?php echo $row['title']; ?></h4>
                             <div class="list-h">
@@ -61,7 +61,7 @@
         <section id="tools">
             <div class="title-pos">
                 <h1 class="distance">Herramientas</h1>
-                <?php if(isset($_SESSION['type'])): if($_SESSION['type'] == "admin"): ?><a class="right btn-icon" href="create.php?filter=tools"><i class="fa-solid fa-plus"></i> Crear</a><?php endif; endif; ?>
+                <?php if(isset($_SESSION['type'])): if($_SESSION['type'] == "admin"): ?><a class="right btn-icon" href="modules/create.php?filter=tools"><i class="fa-solid fa-plus"></i> Crear</a><?php endif; endif; ?>
             </div>
             <div class="content-tools">
                 <?php foreach($restools as $row): ?>

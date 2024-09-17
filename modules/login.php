@@ -17,13 +17,15 @@
             $_SESSION['id'] = $row['id'];
             $_SESSION['name'] = $row['name'];
             $_SESSION['mail'] = $row['mail'];
-            $_SESSION['type'] = "admin";
 
-            header("Location: index.php");
+            if($row['mail'] == "santynrada@gmail.com"): $_SESSION['type'] = "admin";
+            else: $_SESSION['type'] = "user"; endif;
+
+            header("Location: ../index.php");
             exit;
         else:
             $msg = "Correo o contraseña incorrectas,<br> intentalo nuevamente.";
-            header('Location: ?dir=login&msg=' . $msg);
+            header('Location: login.php?msg=' . $msg);
             exit;
         endif;
     endif;
@@ -36,14 +38,14 @@
 
         if($pass !== $passtwo):
             $msg = "Las contraseñas no coinciden.";
-            header('Location: login.php&msg=' . $msg);
+            header('Location: login.php?msg=' . $msg);
             exit;
         endif;
 
         $restest = mysqli_query($con, "select * from admin where mail = '".$mail."';");
         if(mysqli_num_rows($restest) > 0):
             $msg = "El correo electrónico ya existe.";
-            header('Location: login.php&msg=' . $msg);
+            header('Location: login.php?msg=' . $msg);
             exit;
         endif;
 
@@ -56,26 +58,26 @@
             $_SESSION['id'] = $row['id'];
             $_SESSION['name'] = $row['name'];
             $_SESSION['mail'] = $row['mail'];
-            $_SESSION['type'] = "admin";
+            $_SESSION['type'] = "user";
 
-            header("Location: index.php");
+            header("Location: ../index.php");
             exit;
         else:
             $msg = "Fallo en la base de datos, intentelo de nuevo más tarde.";
-            header('Location: login.php&msg=' . $msg);
+            header('Location: login.php?msg=' . $msg);
             exit;
         endif;
     endif;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Games CSS - Santiago Rada</title>
     <!-- STYLES -->
-    <link rel="preconnect" href="style.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="../style/style.css">
+    <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <script src="https://kit.fontawesome.com/8e77509853.js" crossorigin="anonymous"></script>
     <!-- FONTS -->
@@ -85,14 +87,14 @@
 </head>
 <body>
     <main id="login-space">
-        <a href="index.php" class="arrow"><i class="fa-solid fa-arrow-left"></i> Volver al Inicio</a>
+        <a href="../index.php" class="arrow"><i class="fa-solid fa-arrow-left"></i> Volver al Inicio</a>
             <?php if($filter == "login"): ?>
                 <section id="login">
                     <h1>Iniciar Sesión</h1>
                     <form method="post">
                         <div class="input-content">
                             <label for="mail">Correo Electrónico</label>
-                            <input type="mail" class="input" id="mail" name="mail" required>
+                            <input type="mail" class="input" id="mail" name="mail" autofocus required>
                         </div>
 
                         <div class="input-content">

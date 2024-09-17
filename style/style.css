@@ -159,39 +159,6 @@ h1{
         background-color: #1f363d;
     }
 }
-/* -- QUERIES -- */
-@media (max-width: 900px){
-    #header{ padding: 0 4%; }
-    #header nav .btn-nav { padding: 1rem; }
-    main{ padding: 4rem 4%; }
-    .content-games { grid-template-columns: repeat(2, 1fr); }
-    .content-tools { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 500px){
-    /* -- HEADER -- */
-    #header{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding-top: 1.5rem;
-        gap: 1rem;
-    }
-    #header nav a{
-        padding: 1.5rem;
-    }
-    #header nav a:first-child { display: none; }
-    /* -- GAMES -- */
-    main{ padding: 2rem 4%; }
-    .content-games{
-        grid-template-columns: 100%;
-    }
-    /* -- TOOLS -- */
-    .content-tools{
-        grid-template-columns: 100%;
-    }
-    /* -- FOOTER -- */
-}
 /* -- LOGIN -- */
 #login-space .arrow{
     position: absolute;
@@ -299,4 +266,50 @@ label{
 /* -- GAMES.BASE -- */
 .distribution h2{
     color: #cfe0c3 !important;
+}
+/* -- QUERIES -- */
+@media (max-width: 900px){
+    #header{ padding: 0 4%; }
+    #header nav .btn-nav { padding: 1rem; }
+    main{ padding: 4rem 0; }
+    .content-games { grid-template-columns: repeat(2, 1fr); }
+    .content-tools { grid-template-columns: repeat(2, 1fr); }
+    #login{
+        width: 100%;
+        padding: 2rem;
+        margin-top: 4rem;
+    }
+    #login .btn-nav{ font-size: 0.9rem; }
+}
+@media (max-width: 500px){
+    /* -- HEADER -- */
+    #header{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 2% 0;
+        gap: 0;
+    }
+    .distance{ margin-top: 2rem; }
+    #header h2{ padding: 0.5rem 0; }
+    #header nav a{
+        padding: 1.5rem;
+    }
+    #header nav a:first-child { display: none; }
+    /* -- GAMES -- */
+    main{ padding: 2rem 4%; }
+    .content-games .card .content { padding: 1.5rem; }
+    .content h4{ font-size: 1.75rem; }
+    .content .list-h { margin-bottom: 1rem; }
+    .content .chip { font-size: .75rem; }
+    .content-games{
+        grid-template-columns: 100%;
+    }
+    /* -- TOOLS -- */
+    .content span { font-size: 1.1rem; }
+    .content-tools{
+        grid-template-columns: 100%;
+    }
+    /* -- FOOTER -- */
 }

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include('../../config.php');
+    include('../../modules/config.php');
 
     $msg = $_GET['msg'] ?? "";
     $level = $_GET['level'] ?? 1;
@@ -12,7 +12,7 @@
 
     $instruction = $row['instruction'] ?? "";
     $code = htmlspecialchars($json['code'], ENT_QUOTES, 'UTF-8');
-    $correct = $row['correct'];
+    $correct = htmlspecialchars($row['correct'], ENT_QUOTES, 'UTF-8');
 
     if(isset($_POST['next-level'])):
         $verify = mysqli_query($con, "select * from leveldata where idgame = '3' and numlevel = '".($level + 1)."';");
@@ -27,14 +27,14 @@
     endif;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Word of Emmet</title>
     <!-- STYLES -->
-    <link rel="preconnect" href="../../guidelines.css">
-    <link rel="stylesheet" href="../../guidelines.css">
+    <link rel="preconnect" href="../../style/guidelines.css">
+    <link rel="stylesheet" href="../../style/guidelines.css">
     <link rel="preconnect" href="style.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
@@ -125,5 +125,5 @@
 </body>
 </html>
 <script src="function.js"></script>
-<script src="../../dataconfetti.js"></script>
+<script src="../../js/dataconfetti.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>

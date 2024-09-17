@@ -18,7 +18,7 @@ body { background-color: color-mix(in srgb, #1f363d, #000 40%); }
 /* -- BASE -- */
 .distribution{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 50% 50%;
 }
 .distribution h2 {
     font-size: 3.5rem;
@@ -167,6 +167,7 @@ body { background-color: color-mix(in srgb, #1f363d, #000 40%); }
 }
 #box img { width: max-content; height: 100px; }
 /* -- CONGRATULATIONS -- */
+.relative { position: relative; }
 #congratulation, .response{
     position: absolute;
     top: 0;
@@ -213,15 +214,9 @@ body { background-color: color-mix(in srgb, #1f363d, #000 40%); }
 }
 .input-2 option { background-color: #1f363d; }
 @media (max-width: 1450px){
-    .distribution{
-        display: flex;
-        flex-direction: column;
-        padding: 0rem;
-    }
-    #left-content{
-        padding: 1.5rem;
-        height: max-content;
-    }
+    .between{ margin-bottom: 1.5rem; }
+    .distribution { grid-template-columns: 100% !important; }
+    .distribution #left-content { min-height: 80vh; height: max-content; padding: 1.5rem; }
     #left-content h2{
         font-size: 3rem;
         line-height: 3rem;
@@ -243,10 +238,7 @@ body { background-color: color-mix(in srgb, #1f363d, #000 40%); }
         max-width: 75%;
         opacity: .65;
     }
-    #right-content{
-        padding: 1.5rem;
-        max-height: 600px;
-    }
+    #right-content { padding: 1.5rem; }
     #box img { width: max-content; height: 75px; }
     #congratulation h1, .response h1 { font-size: 3rem; }
     #congratulation p, .response p { font-size: 1rem; }

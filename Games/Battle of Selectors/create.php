@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    include('../../config.php');
+    include('../../modules/config.php');
 
     $msg = $_GET['msg'] ?? "";
 
@@ -33,14 +32,14 @@
     endif;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editor de Battle of Selectors</title>
     <!-- STYLES -->
-    <link rel="preconnect" href="../../guidelines.css">
-    <link rel="stylesheet" href="../../guidelines.css">
+    <link rel="preconnect" href="../../style/guidelines.css">
+    <link rel="stylesheet" href="../../style/guidelines.css">
     <link rel="preconnect" href="style.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />

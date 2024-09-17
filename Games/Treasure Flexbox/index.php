@@ -1,22 +1,24 @@
 <?php
     session_start();
-    include('../../config.php');
+    include('../../modules/config.php');
 
     $msg = $_GET['msg'] ?? "";
     $level = $_GET['level'] ?? 1;
-    $row = mysqli_fetch_assoc(mysqli_query($con, "select * from levels where idgame = '1' and numlevel = '".$level."';"));
+    $row = mysqli_fetch_assoc(mysqli_query($con, "select * from leveldata where idgame = '1' and numlevel = '".$level."';"));
 
-    $resall = mysqli_query($con, "select * from levels where idgame = '1' order by numlevel asc;");
+    $resall = mysqli_query($con, "select * from leveldata where idgame = '1' order by numlevel asc;");
+
+    $json = json_decode($row['content'], TRUE);
 
     // CONTENIDO FINAL
     $instruction = html_entity_decode($row['instruction'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
-    $code = html_entity_decode($row['code'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
-    $style = html_entity_decode($row['style'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
-    $content = html_entity_decode($row['content'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $code = html_entity_decode($json['code'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $style = html_entity_decode($json['style'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $content = html_entity_decode($json['content'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
     $correct = html_entity_decode($row['correct'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
 
     if(isset($_POST['next-level'])):
-        $verify = mysqli_query($con, "select * from levels where idgame = '1' and numlevel = '".($level + 1)."';");
+        $verify = mysqli_query($con, "select * from leveldata where idgame = '1' and numlevel = '".($level + 1)."';");
 
         if(mysqli_num_rows($verify) > 0):
             header('Location: index.php?level=' . ($level + 1));
@@ -28,14 +30,14 @@
     endif;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Treasure Flexbox</title>
     <!-- STYLES -->
-    <link rel="preconnect" href="../../guidelines.css">
-    <link rel="stylesheet" href="../../guidelines.css">
+    <link rel="preconnect" href="../../style/guidelines.css">
+    <link rel="stylesheet" href="../../style/guidelines.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <!-- SCRIPT -->
     <script src="https://kit.fontawesome.com/8e77509853.js" crossorigin="anonymous"></script>
@@ -92,5 +94,5 @@
 </body>
 </html>
 <script src="function.js"></script>
-<script src="../../dataconfetti.js"></script>
+<script src="../../js/dataconfetti.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>

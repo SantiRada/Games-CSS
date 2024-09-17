@@ -1,9 +1,14 @@
+.distribution{
+    display: grid;
+    grid-template-columns: 50% 50% !important;
+}
 .codes{
     width: 100%;
     min-height: 105px;
     background-color:  #cfe0c3;
     display: grid;
     grid-template-columns: 5% 95%;
+    overflow-x: auto;
 }
 .codes form{
     width: 100%;
@@ -39,6 +44,17 @@
     margin-left: 1.6rem;
 }
 .relative{position: relative; }
+
+@media (max-width: 1000px){
+    .between{ margin-bottom: 1.5rem; }
+    .distribution { grid-template-columns: 100% !important; }
+    .distribution #left-content { min-height: 80vh; height: max-content; }
+    #right-content, #box{ padding: 0; }
+    #box{ background-color: color-mix(in srgb, #cfe0c3, #000 10%); }
+    .codes { padding: 0rem; grid-template-columns: 10% 90%; }
+    #right-content .codes form { padding: 1.5rem 0; }
+    #right-content .codes{ padding: 0; }
+}
 
 /* GUIDE
 #1f363d

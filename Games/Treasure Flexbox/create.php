@@ -1,28 +1,37 @@
 <?php
-    include('../../config.php');
+    include('../../modules/config.php');
     $msg = $_GET['msg'] ?? "";
 
-    $rowcant = mysqli_fetch_assoc(mysqli_query($con, "select * from levels where idgame = '1' order by id desc limit 1;"));
+    $rowcant = mysqli_fetch_assoc(mysqli_query($con, "select * from leveldata where idgame = '1' order by id desc limit 1;"));
     if($rowcant): $num = ($rowcant['numlevel'] + 1);
     else: $num = 1; endif;
 
     if(isset($_POST['create'])):
-        $instruction = $_POST['instruction'] ?? "";
-        $code = $_POST['code'] ?? "";
-        $style = $_POST['style'] ?? "";
-        $content = $_POST['content'] ?? "";
-        $correct = $_POST['correct'] ?? "";
+        $instruction = htmlspecialchars($_POST['instruction'], ENT_QUOTES, 'UTF-8');
+        $code = htmlspecialchars($_POST['code'], ENT_QUOTES, 'UTF-8');
+        $style = htmlspecialchars($_POST['style'], ENT_QUOTES, 'UTF-8');
+        $content = htmlspecialchars($_POST['content'], ENT_QUOTES, 'UTF-8');
+        $correct = htmlspecialchars($_POST['correct'], ENT_QUOTES, 'UTF-8');
 
-        $instruction = htmlspecialchars($instruction, ENT_QUOTES, 'UTF-8');
-        $code = htmlspecialchars($code, ENT_QUOTES, 'UTF-8');
-        $style = htmlspecialchars($style, ENT_QUOTES, 'UTF-8');
-        $content = htmlspecialchars($content, ENT_QUOTES, 'UTF-8');
-        $correct = htmlspecialchars($correct, ENT_QUOTES, 'UTF-8');
+        $data = [
+            "code" => $code,
+            "style" => $style,
+            "content" => $content
+        ];
+        $json = json_encode($data, JSON_PRETTY_PRINT);
 
-        $sql = "insert into levels (idgame,numlevel,instruction,code,style,content,correct) values (1, '".$num."','".$instruction."', '".$code."','".$style."','".$content."','".$correct."');";
-        $res = mysqli_query($con, $sql);
+        // Guardar en la base de datos usando consultas preparadas
+        $pdo = new PDO('mysql:host=localhost;dbname=games-css', 'root', '');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        if($res): $msg = "Nivel de Treasure Flexbox creado con éxito.";
+        $stmt = $pdo->prepare("INSERT INTO leveldata (idgame,numlevel,instruction,correct, content) VALUES (:idgame,:numlevel,:instruction,:correct,:content)");
+        if($stmt->execute([
+            ':idgame' => 1,
+            ':numlevel' => $num,
+            ':instruction' => $instruction,
+            ':correct' => $correct,
+            ':content' => $json
+        ])): $msg = "Nivel de Treasure Flexbox creado con éxito.";
         else: $msg = "Falló la conexión al servidor, intentelo de nuevo más tarde."; endif;
 
         header('Location: create.php?msg=' . $msg);

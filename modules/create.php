@@ -1,9 +1,8 @@
 <?php
-
     include('config.php');
     
     session_start();
-    if(!isset($_SESSION['name'])): header('Location: index.php'); exit; endif;
+    if(!isset($_SESSION['name'])): header('Location: ../index.php'); exit; endif;
 
     $msg = $_GET['msg'] ?? "";
     $filter = $_GET['filter'] ?? "tools";
@@ -23,7 +22,7 @@
 
         $res = mysqli_query($con, "insert into games (title, description, chips) values ('".$title."','".$description."','".$chips."');");
 
-        if($res): header('Location: index.php?msg=si');
+        if($res): header('Location: ../index.php?msg=Creación exitosa');
         else:
             $msg = "Error al crear el juego, intentelo de nuevo más tarde.";
             header('Location: create.php?filter=games&msg=' . $msg);
@@ -47,7 +46,7 @@
 
         $res = mysqli_query($con, "insert into tools (link,img,title,description) values ('".$link."','".$img."','".$title."','".$description."');");
 
-        if($res): header('Location: index.php');
+        if($res): header('Location: ../index.php');
         else:
             $msg = "Error al crear la herramienta, intentelo de nuevo más tarde.";
             header('Location: create.php?filter=tools&msg=' . $msg);
@@ -56,14 +55,14 @@
     endif;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear <?php if($filter == "tools"): echo "Herramienta"; else: echo "Juego"; endif; ?></title>
     <!-- STYLES -->
-    <link rel="preconnect" href="style.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="../style/style.css">
+    <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <script src="https://kit.fontawesome.com/8e77509853.js" crossorigin="anonymous"></script>
     <!-- FONTS -->

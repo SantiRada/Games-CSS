@@ -1,0 +1,22 @@
+#box{
+    padding: 3rem 4rem;
+    max-width: 100%;
+    overflow: auto;
+}
+#box * {
+    color: #1f363d;
+    font-size: 1.25rem;
+}
+#box div > div{
+    padding-left: 1rem;
+    border-left: 2px solid #1f363d;
+}
+#box span{ color: color-mix(in srgb, #eb0a74, #000 12%); }
+#box em{ color: color-mix(in srgb, #70a9a1, #000 12%); }
+
+/* GUIDE
+#1f363d
+#70a9a1
+#cfe0c3
+#eb0a74
+*/

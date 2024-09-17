@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include('../../config.php');
+    include('../../modules/config.php');
 
     $msg = $_GET['msg'] ?? "";
     $level = $_GET['level'] ?? 1;
@@ -32,14 +32,14 @@
     endif;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Battle of Selectors</title>
     <!-- STYLES -->
-    <link rel="preconnect" href="../../guidelines.css">
-    <link rel="stylesheet" href="../../guidelines.css">
+    <link rel="preconnect" href="../../style/guidelines.css">
+    <link rel="stylesheet" href="../../style/guidelines.css">
     <link rel="preconnect" href="style.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
@@ -81,10 +81,10 @@
     <main>
         <section id="distribution">
             <button class="button-up" id="button-1">
-                <img src="../Treasure Flexbox/pirate-2.png" alt="Pirata 1">
+                <img src="../../media/pirate-2.png" alt="Pirata 1">
                 <span id="text-1"><?php echo $code1; ?></span></button>
             <button class="button-down" id="button-2">
-                <img src="../Treasure Flexbox/pirate.png" alt="Pirata 2">
+                <img src="../../media/pirate.png" alt="Pirata 2">
                 <span id="text-2"><?php echo $code2; ?></span></button>
         </section>
 
@@ -105,5 +105,5 @@
 </body>
 </html>
 <script src="function.js"></script>
-<script src="../../dataconfetti.js"></script>
+<script src="../../js/dataconfetti.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
