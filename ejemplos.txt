@@ -1,0 +1,29 @@
+----------- PATHFINDER -----------
+Se busca que el jugador aprenda a seleccionar archivos entre carpetas, con "/" y "/../"
+----------------------------------
+<ul>
+    <li><i class="fa-solid fa-file"></i> af</li>
+    <li><i class="fa-solid fa-file"></i> an</li>
+    <li><i class="fa-solid fa-file"></i> as</li>
+    <li><i class="fa-solid fa-file"></i> au</li>
+    <li><i class="fa-solid fa-file"></i> eu</li>
+    <li>
+        <p><i class="fa-solid fa-file"></i> na</p>
+        <ul>
+            <li><i class="fa-solid fa-file"></i> can</li>
+            <li><i class="fa-solid fa-file"></i> max</li>
+            <li>
+                <p><i class="fa-solid fa-file"></i> usa</p>
+                <p><i class="fa-solid fa-location-dot color-1"></i> archivo.html</p>
+            </li>
+        </ul>
+    </li>
+    <li><i class="fa-solid fa-file"></i> af</li>
+</ul>
+
+// CORRECTO:
+"na/usa/archivo.html"
+
+----------- The Word of Emmet -----------
+Se busca que el jugador aprenda la sintaxis de Emmet.
+-----------------------------------------

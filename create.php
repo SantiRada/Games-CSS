@@ -23,7 +23,7 @@
 
         $res = mysqli_query($con, "insert into games (title, description, chips) values ('".$title."','".$description."','".$chips."');");
 
-        if($res): header('Location: index.php');
+        if($res): header('Location: index.php?msg=si');
         else:
             $msg = "Error al crear el juego, intentelo de nuevo más tarde.";
             header('Location: create.php?filter=games&msg=' . $msg);
@@ -76,7 +76,21 @@
         <h1>Crear <?php if($filter == "tools"): echo "Herramienta"; else: echo "Juego"; endif; ?></h1>
         <form method="post" class="form-distance">
             <?php if($filter == "games"): ?>
-
+                <div class="grid-2">
+                    <div class="input-content">
+                        <label for="title">Título</label>
+                        <input type="text" class="input" name="title" id="title" required>
+                    </div>
+                    <div class="input-content">
+                        <label for="description">Descripción</label>
+                        <input type="text" class="input" name="description" id="description" required>
+                    </div>
+                </div>
+                <div class="input-content">
+                        <label for="chips">Chips</label>
+                        <input type="text" class="input" name="chips" id="chips" required>
+                    </div>
+                <input type="submit" class="button-primary" name="create-games" value="Crear Juegos">
             <?php elseif($filter == "tools"): ?>
                 <div class="grid-2">
                     <div class="input-content">

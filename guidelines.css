@@ -1,0 +1,277 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'DM Sans', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    color: #cfe0c3;
+}
+html { scroll-behavior: smooth; }
+body { background-color: color-mix(in srgb, #1f363d, #000 40%); }
+.list-h{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+/* -- BASE -- */
+.distribution{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.distribution h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+.distribution .text{
+    font-size: 1.1rem;
+    color: color-mix(in srgb, #cfe0c3, #000 35%);
+    margin-bottom: 2rem;
+}
+.distribution p span{
+    color: color-mix(in srgb, #cfe0c3, #000 5%);
+    font-weight: 700;
+}
+/* -- LEFT -- */
+#left-content{
+    position: relative;
+    padding: 4rem;
+    width: 100%;
+    height: 100vh;
+}
+.between{
+    display: flex;
+    justify-content: space-between;
+}
+.arrow{
+    transition: background-color .14s ease-in;
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+
+    &:hover{ background-color: #1f363d; }
+}
+.instruction span{
+    color: #70a9a1 !important;
+    font-weight: 700;
+}
+.space-code{
+    position: absolute;
+    bottom: 100px;
+    width: calc(100% - 8rem);
+    height: 250px;
+    border-radius: 8px;
+    background-color: #cfe0c3;
+    padding: 1rem 1.5rem 1.5rem 3rem;
+}
+.space-code:before{
+    content: '1 2 3 4 5 6 7 8';
+    position: absolute;
+    top:0;
+    left:0;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    text-align: center;
+    line-height: 1.65rem;
+    color: color-mix(in srgb, #1f363d, #000 40%);
+    background-color: color-mix(in srgb, #1f363d, #fff 20%);
+    padding: 1.5rem .65rem;
+    justify-content: center;
+    width: 10px;
+    height: calc(100% - 3rem);
+}
+.space-code p{
+    color: #1f363d;
+    opacity: .75;
+    font-size: 1.35rem;
+}
+.space-code p + p, .space-code textarea { margin-left: 1.5rem; }
+.input{
+    width: calc(100% - 1.5rem);
+    border: none;
+    color: #000;
+    padding: 0.25rem 0.5rem;
+    background-color: color-mix(in srgb, #cfe0c3, #70a9a1 50%);
+    transition: all .14s ease-in;
+    font-size: 1.15rem;
+
+    &:focus{
+        background-color: #fff;
+        outline: none;
+    }
+}
+.button-primary{
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background-color: #eb0a74;
+    border: none;
+    padding: .5rem .85rem;
+    color: #fff;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: background-color .14s ease-in;
+    cursor: pointer;
+    scale: 0;
+    animation: show .2s ease-in forwards;
+
+    &:hover{ background-color: color-mix(in srgb, #eb0a74, #000 25%); }
+    &:active{ background-color: color-mix(in srgb, #eb0a74, #000 45%); }
+}
+@keyframes show{
+    from{ scale: 0; }
+    to{ scale: 1; }
+}
+.hidden { position: relative; }
+.hidden:after{
+    content: '';
+    position: absolute;
+    top:-1.5px;
+    left:-3px;
+    width: 100%;
+    height: 100%;
+    background-color: #1f363d;
+    
+    transition: all .2s ease-in;
+    border-radius: 8px;
+    padding: .12rem;
+}
+.hidden:hover:after { background-color: rgba(31, 54, 61, 0); }
+/* -- FOOTER -- */
+.footer{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 1.25rem 0;
+    background-color: #1f363d;
+    width: 100%;
+    text-align: center;
+}
+.footer p { font-size: .85rem; }
+/* -- RIGHT -- */
+#right-content{
+    background-color: #cfe0c3;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 4rem;
+}
+#box{
+    position: relative;
+    background-color: color-mix(in srgb, #cfe0c3, #000 10%);
+    border-radius: 8px;
+    padding: 2rem;
+    width: 100%;
+    height: 100%;
+}
+#box img { width: max-content; height: 100px; }
+/* -- CONGRATULATIONS -- */
+#congratulation, .response{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    scale: 0;
+    background-color: rgba(0 0 0 / 0%);
+    color: #cfe0c3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    transition: all .2s ease-in;
+    animation: Finish .5s .75s ease-in forwards;
+}
+@keyframes Finish{
+    from{
+        opacity: 0;
+        background-color: rgba(0 0 0 / 0%);
+        scale: 0;
+    }
+    to{
+        opacity: 1;
+        background-color: rgba(0 0 0 / 50%);
+        scale: 1;
+    }
+}
+#congratulation h1, .response h1 { font-size: 6rem; }
+#congratulation p, .response p{
+    font-size: 1.25rem;
+    opacity: .75;
+}
+.not-view { display: none !important; }
+.input-2{
+    background-color: #1f363d;
+    border: 2px solid color-mix(in srgb, #1f363d, #fff 25%);
+    color: #cfe0c3;
+    padding: .5rem .75rem;
+    border-radius: 16px;
+    min-width: 150px;
+}
+.input-2 option { background-color: #1f363d; }
+@media (max-width: 1450px){
+    .distribution{
+        display: flex;
+        flex-direction: column;
+        padding: 0rem;
+    }
+    #left-content{
+        padding: 1.5rem;
+        height: max-content;
+    }
+    #left-content h2{
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+    .space-code{
+        position: inherit;
+        bottom: 0;
+        width: 100%;
+        margin-top: 1.5rem;
+        margin-bottom: 5rem;
+    }
+    .footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer p{
+        font-size: .75rem;
+        max-width: 75%;
+        opacity: .65;
+    }
+    #right-content{
+        padding: 1.5rem;
+        max-height: 600px;
+    }
+    #box img { width: max-content; height: 75px; }
+    #congratulation h1, .response h1 { font-size: 3rem; }
+    #congratulation p, .response p { font-size: 1rem; }
+}
+.notification{
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    background-color: #1f363d;
+    padding: .75rem 1.5rem;
+    z-index: 4;
+    border-radius: 16px;
+    font-size: 1rem;
+    color: #cfe0c3;
+    box-shadow: 0px 0px 15px #000;
+    animation: end 5s forwards;
+}
+.notification:hover { animation-play-state: paused; }
+@keyframes end{
+    0%, 100%{
+        scale: .5;
+        opacity: 0;
+    }
+    25%, 75%{
+        scale: 1;
+        opacity: 1;;
+    }
+}

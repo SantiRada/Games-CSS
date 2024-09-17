@@ -1,0 +1,48 @@
+.codes{
+    width: 100%;
+    min-height: 105px;
+    background-color:  #cfe0c3;
+    display: grid;
+    grid-template-columns: 5% 95%;
+}
+.codes form{
+    width: 100%;
+    padding: .25rem;
+}
+.codes form .input {
+    width: 100%;
+    line-height: 1.75rem;
+}
+.list-v{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: color-mix(in srgb, #cfe0c3, #1f363d 20%);
+    gap: .25rem;
+}
+.list-v p{
+    color: #1f363d;
+    font-size: 1.25rem;
+}
+.instruction{
+    margin-bottom: 1.5rem;
+}
+
+#right-content .codes{
+    height: 100%;
+    padding: 2rem;
+}
+#right-content .codes pre{
+    font-size: 1.6rem;
+    color: #1f363d;
+    margin-left: 1.6rem;
+}
+.relative{position: relative; }
+
+/* GUIDE
+#1f363d
+#70a9a1
+#cfe0c3
+#eb0a74
+*/
