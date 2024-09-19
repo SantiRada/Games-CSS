@@ -21,6 +21,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header id="header">
@@ -39,6 +41,15 @@
             <div class="title-pos">
                 <h1 class="distance">Juegos</h1>
                 <?php if(isset($_SESSION['type'])): if($_SESSION['type'] == "admin"): ?><a class="right btn-icon" href="modules/create.php?filter=games"><i class="fa-solid fa-plus"></i> Crear</a><?php endif; endif; ?>
+            </div>
+            <div class="sector-tabs">
+                <div class="tabs-filter">
+                    <a class="chip-tabs" href="#">Todos</a>
+                    <a class="chip-tabs" href="#">HTML</a>
+                    <a class="chip-tabs" href="#">CSS</a>
+                    <a class="chip-tabs" href="#">JS</a>
+                    <a class="chip-tabs" href="#">SQL</a>
+                </div>
             </div>
             <div class="content-games">
                 <?php foreach($resgames as $row): $chips = explode(',', $row['chips']); ?>
@@ -85,6 +96,22 @@
             <li><a class="btn-icon" href="https://github.com/SantiRada" target="_blank"><i class="fa-brands fa-github"></i></a></li>
         </ul>
     </footer>
+
+    <script>
+        $(document).ready(function() {
+            $('.chip-tabs').click(function() {
+                var chiptabs = $(this).text();
+
+                $.ajax({
+                    url: 'modules/ajax/filtergames.php',
+                    type: 'POST',
+                    data: { type: chiptabs },
+                    success: (response) => {
+                        $('.content-games').html(response);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-

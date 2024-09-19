@@ -1,113 +1,113 @@
-/* -- BASE -- */
-.notification { min-width: 450px; max-width: 600px; }
-#base {
-    z-index: 2;
-    background-color: color-mix(in srgb, #1f363d, #000 25%);
-    padding: 1rem;
-    position: absolute;
-    top: 50%;
-    left: 2rem;
-    transform: translateY(-50%);
-    border-radius: 16px;
-    box-shadow: 0px 0px 16px rgba(0 0 0 / 25%);
-    width: 600px;
-}
-.instructor{
-    z-index: 3;
-    position: fixed;
-    bottom: 2rem;
-    left: 2rem;
-    background-color: color-mix(in srgb, #1f363d, #000 20%);
-    padding: 1rem;
-    border-radius: 16px;
-    width: 600px;
-    animation: end-instructor 6s ease-in forwards;
-}
-@keyframes end-instructor{
-    0%, 75% { bottom: 2rem; }
-    100% { bottom: -100%; }
-}
-.instruction { opacity: .65; }
-/* -- GAME -- */
-.button-up, .button-down{
-    border: none;
-    width: 100%;
-    height: 50%;
-    font-size: 2.25rem;
-    position: relative;
-    max-width: 100%;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all .15s ease-in;
-
-    &:hover { filter: saturate(180%); }
-}
-.button-up { background-color: #70a9a1; }
-.button-down { background-color: #1f363d; }
-.button-up span { color: #000 !important; font-size: 3.25rem; }
-.button-down span { color: #fff !important; font-size: 3.25rem; }
-.button-up img, .button-down img{
-    position: absolute;
-    bottom: -120px;
-    width: 600px;
-    opacity: .12;
-    pointer-events: none;
-}
-.button-up img{
-    left: 50px;
-    transform: rotate(20deg);
-}
-.button-down img{
-    right: 50px;
-    transform: rotate(-20deg);
-}
-#distribution{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.footer {
-    background-color: transparent;
-    padding: .5rem 1rem;
-    position: relative;
-}
-.show-input{
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    font-size: 3.5rem;
-    border: none;
-}
-.select{
-    background-color: #70a9a1;
-    color: #000;
-    border-radius: 8px;
-    border: none;
-    min-width: 150px;
-    text-align: center;
-}
-option { color: #fff; }
-select{ text-align: center; }
-.select option { color: #000; }
-#button-1.show-input { background-color: #70a9a1; color: #000; }
-#button-2.show-input { background-color: #1f363d; color: #fff; }
-@media (max-width: 1000px){
-    .button-up span { font-size: 2.5rem; max-width: 90%; }
-    .button-down span { font-size: 2.5rem; max-width: 90%; }
-    .notification, .instructor { width: 100%; }
-    .instructor{
-        bottom: 0;
-        left: 0;
-        padding: .75rem;
-        border-radius: 0px;
-    }
-    #base {
-        left: 0;
-        width: 100%;
-        border-radius: 0;
-    }
-    #congratulation p, .response p { max-width: 90%; }
+/* -- BASE -- */
+.notification { min-width: 450px; max-width: 600px; }
+#base {
+    z-index: 2;
+    background-color: color-mix(in srgb, #1f363d, #000 25%);
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    transform: translateY(-50%);
+    border-radius: 16px;
+    box-shadow: 0px 0px 16px rgba(0 0 0 / 25%);
+    width: 600px;
+}
+.instructor{
+    z-index: 3;
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background-color: color-mix(in srgb, #1f363d, #000 20%);
+    padding: 1rem;
+    border-radius: 16px;
+    width: 600px;
+    animation: end-instructor 6s ease-in forwards;
+}
+@keyframes end-instructor{
+    0%, 75% { bottom: 2rem; }
+    100% { bottom: -100%; }
+}
+.instruction { opacity: .65; }
+/* -- GAME -- */
+.button-up, .button-down{
+    border: none;
+    width: 100%;
+    height: 50%;
+    font-size: 2.25rem;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .15s ease-in;
+
+    &:hover { filter: saturate(180%); }
+}
+.button-up { background-color: #70a9a1; }
+.button-down { background-color: #1f363d; }
+.button-up span { color: #000 !important; font-size: 3.25rem; }
+.button-down span { color: #fff !important; font-size: 3.25rem; }
+.button-up img, .button-down img{
+    position: absolute;
+    bottom: -120px;
+    width: 600px;
+    opacity: .12;
+    pointer-events: none;
+}
+.button-up img{
+    left: 50px;
+    transform: rotate(20deg);
+}
+.button-down img{
+    right: 50px;
+    transform: rotate(-20deg);
+}
+#distribution{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.footer {
+    background-color: transparent;
+    padding: .5rem 1rem;
+    position: relative;
+}
+.show-input{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 3.5rem;
+    border: none;
+}
+.select{
+    background-color: #70a9a1;
+    color: #000;
+    border-radius: 8px;
+    border: none;
+    min-width: 150px;
+    text-align: center;
+}
+option { color: #fff; }
+select{ text-align: center; }
+.select option { color: #000; }
+#button-1.show-input { background-color: #70a9a1; color: #000; }
+#button-2.show-input { background-color: #1f363d; color: #fff; }
+@media (max-width: 1000px){
+    .button-up span { font-size: 2.5rem; max-width: 90%; }
+    .button-down span { font-size: 2.5rem; max-width: 90%; }
+    .notification, .instructor { width: 100%; }
+    .instructor{
+        bottom: 0;
+        left: 0;
+        padding: .75rem;
+        border-radius: 0px;
+    }
+    #base {
+        left: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+    #congratulation p, .response p { max-width: 90%; }
 }
