@@ -11,7 +11,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games CSS - Santiago Rada</title>
+    <!-- SEO -->
+    <meta name="keywords" content="games,html,css,javascript,java,mysql,react,vite,typescript,ajax,jquery,programar,programacion,frontend,backend">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Santiago Rada">
+    <meta name="description" content="En GamesDev puedes aprender HTML, CSS, JavaScript y más con pequeños juegos que aunque simples son muy efectivos para arraigar el conocimiento.">
+    <meta property="og:title" content="GamesDev - Aprende Frontend Jugando">
+    <meta property="og:description" content="En GamesDev puedes aprender HTML, CSS, JavaScript y más, con juegos que aunque simples son muy efectivos para arraigar el conocimiento.">
+    <meta property="og:image" content="media/socialnetwork.png">
+    <meta name="twitter:title" content="GamesDev - Aprende Frontend Jugando">
+    <title>GamesDev - Santiago Rada</title>
+    <link rel="icon" href="media/favicon.ico" type="image/x-icon">
     <!-- STYLES -->
     <link rel="preconnect" href="style/style.css">
     <link rel="stylesheet" href="style/style.css">
@@ -115,3 +125,12 @@
     </script>
 </body>
 </html>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4MFP7LE2CB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4MFP7LE2CB');
+</script>
